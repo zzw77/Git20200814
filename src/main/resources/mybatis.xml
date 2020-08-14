@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings><!--控制台输出sql语句-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!--<typeAliases>&lt;!&ndash;别名设置&ndash;&gt;
+        <typeAlias alias="Emp" type="com.lanxin.bean.Emp"></typeAlias>
+    </typeAliases>-->
+
+    <environments default="development">
+        <environment id="development"><!---->
+            <transactionManager type="JDBC"></transactionManager><!-- 使用jdbc事务管理 -->
+            <dataSource type="POOLED"><!-- 数据库连接池 -->
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://localhost:3306/shiro?useUnicode=true&amp;characterEncoding=UTF-8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="lanxin"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers><!--SQL映射文件-->
+        <mapper resource="mappers/Roles.xml"></mapper>
+    </mappers>
+</configuration>

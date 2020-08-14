@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lanxin.dao.RolesDao">
+    <select id="userspassword" resultType="java.lang.String" parameterType="java.lang.String">
+         select password from users where username=#{username}
+    </select>
+
+    <select id="rolesname" resultType="java.lang.String" parameterType="java.lang.String">
+         select role_name from user_roles
+    </select>
+
+    <select id="permissions" resultType="java.lang.String" parameterType="java.lang.String">
+         select permission from user_roles ur,roles_permissions pr where ur.role_name=pr.role_name and ur.username=#{username}
+    </select>
+</mapper>
